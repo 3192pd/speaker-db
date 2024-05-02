@@ -1,7 +1,5 @@
 export function handleResponse(csvText) {
-  const data = createObjects(csvText)
-  console.log(data)
-  return data
+  return createObjects(csvText)
 }
 // This function converts the csv data to objects.
 function createObjects(speaker_data) {
@@ -16,7 +14,7 @@ function createObjects(speaker_data) {
     }
     objects.push(thisObject)
   }
-  return objects
+  return { speakers: objects, properties: propertyNames }
 }
 // This function formats the data and removes the extra "\" in between words
 // console.log(rows) gives "\TimeStamp\","\Email Address\", etc
