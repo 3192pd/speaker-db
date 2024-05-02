@@ -13,3 +13,5 @@ const properties = all_data.properties
 
 console.log(all_data)
 //console.log(speaker_data[0][properties[1]])
+
+const appElement = document.getElementById("app")
