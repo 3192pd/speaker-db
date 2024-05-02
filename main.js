@@ -11,4 +11,5 @@ const all_data = await fetch(sheetURL)
 const speaker_data = all_data.speakers
 const properties = all_data.properties
 
-console.log(speaker_data[0][properties[1]])
+console.log(all_data)
+//console.log(speaker_data[0][properties[1]])
