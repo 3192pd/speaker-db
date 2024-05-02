@@ -14,7 +14,7 @@ function createObjects(speaker_data) {
     }
     objects.push(thisObject)
   }
-  return { speakers: objects, properties: propertyNames }
+  return objects
 }
 // This function formats the data and removes the extra "\" in between words
 // console.log(rows) gives "\TimeStamp\","\Email Address\", etc
