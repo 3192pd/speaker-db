@@ -1,29 +1,6 @@
 import { handleResponse } from "./utils"
 
-/*
-
-0
-: 
-"Timestamp"
-1
-: 
-"Email Address"
-2
-: 
-"Name"
-3
-: 
-"Phone Number"
-4
-: 
-"Subject of Expertise  (Could be specific or general)"
-5
-: 
-"Link to LinkedIn Profile"
-
-*/
 const properties = [
-  "Timestamp",
   "Email Address",
   "Name",
   "Phone Number",
@@ -31,8 +8,8 @@ const properties = [
   "Link to LinkedIn Profile",
 ]
 
-const sheetId = "19mpsbRV-wXdFU-n871eqUsNtFJ2PlkW3nVn5jUc5spE"
-const sheetName = encodeURIComponent("Form Responses 1")
+const sheetId = import.meta.env.VITE_CSVsheetId
+const sheetName = encodeURIComponent(import.meta.env.VITE_sheetName)
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
 
 const speaker_data = await fetch(sheetURL)
@@ -52,3 +29,14 @@ for (let speaker of speaker_data) {
   }
   dbElement.appendChild(speakerDiv)
 }
+
+const searchInput = document.getElementById("searchInput")
+const handleSearch = () => {
+  const text = searchInput.value
+  const elements = Array.from(document.querySelectorAll("p"))
+  const results = elements.filter((element) => {
+    return element.textContent.toLowerCase().includes(text.toLowerCase())
+  })
+  console.log(results)
+}
+searchInput.addEventListener("input", handleSearch)

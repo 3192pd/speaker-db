@@ -9,7 +9,7 @@ function createObjects(speaker_data) {
   for (let i = 1, max = rows.length; i < max; i++) {
     let thisObject = {}
     let row = csvSplit(rows[i])
-    for (let j = 0, max = row.length; j < max; j++) {
+    for (let j = 1, max = row.length; j < max; j++) {
       thisObject[propertyNames[j]] = row[j]
     }
     objects.push(thisObject)
